@@ -6,7 +6,6 @@
 
 import os
 import torch
-from torch._six import container_abcs, string_classes, int_classes
 from torch.utils.data import DataLoader
 from fastreid.utils import comm
 
@@ -14,6 +13,19 @@ from . import samplers
 from .common import CommDataset
 from .datasets import DATASET_REGISTRY
 from .transforms import build_transforms
+
+
+
+from torch._six import string_classes
+
+TORCH_MAJOR = int(torch.__version__.split('.')[0])
+TORCH_MINOR = int(torch.__version__.split('.')[1])
+if TORCH_MAJOR == 1 and TORCH_MINOR < 8:
+    from torch._six import container_abcs,int_classes
+else:
+    import collections.abc as container_abcs
+    int_classes = int
+
 
 _root = os.getenv("FASTREID_DATASETS", "datasets")
 
