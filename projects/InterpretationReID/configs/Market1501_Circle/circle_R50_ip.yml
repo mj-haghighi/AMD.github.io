@@ -27,7 +27,7 @@ DATASETS:
 
 INTERPRETATION:
   FREEZE_LAYERS: ["heads","backbone_2","backbone_1"]
-  PRETRAIN_MODEL: '/export/home/cxd/fast-reid-interpretation-1008/logs/market1501/bagtricks_circle_R50/model_final.pth'
+  PRETRAIN_MODEL: 'logs/market1501/bagtricks_circle_R50/model_final.pth'
   ATT_PRETRAIN_DICT: '/export/home/cxd/fast-reid-interpretation-1008/pretrain_models/market_dict_all.pth'
 
   MODEL:
